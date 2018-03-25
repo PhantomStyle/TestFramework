@@ -5,7 +5,6 @@ import phantomstyle.framework.annotations.After;
 import phantomstyle.framework.annotations.Before;
 import phantomstyle.framework.annotations.Test;
 import phantomstyle.framework.messengeres.ConsoleMessenger;
-import phantomstyle.test.classes.Adder;
 import phantomstyle.test.classes.Difference;
 
 public class DifferenceTester {

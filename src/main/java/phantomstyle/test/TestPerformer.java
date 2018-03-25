@@ -1,6 +1,5 @@
 package phantomstyle.test;
 
-import com.sun.org.apache.regexp.internal.RE;
 import phantomstyle.ReflectionHelper;
 import phantomstyle.framework.annotations.After;
 import phantomstyle.framework.annotations.Before;
@@ -18,9 +17,10 @@ public class TestPerformer {
             classes.add(Class.forName(arg));
         }
         for (Class c : classes) {
-            ReflectionHelper.findAnnotatedMethod(c, Before.class).invoke(c.newInstance());
-            ReflectionHelper.findAnnotatedMethod(c, Test.class).invoke(c.newInstance());
-            ReflectionHelper.findAnnotatedMethod(c, After.class).invoke(c.newInstance());
+            Object obj = c.newInstance();
+            ReflectionHelper.findAnnotatedMethod(c, Before.class).invoke(obj);
+            ReflectionHelper.findAnnotatedMethod(c, Test.class).invoke(obj);
+            ReflectionHelper.findAnnotatedMethod(c, After.class).invoke(obj);
         }
     }
 
