@@ -9,14 +9,12 @@ import phantomstyle.test.classes.Factorial;
 
 public class FactorialTester {
 
-    private Factorial factorial;
-    private Assert anAssert;
+    private Factorial factorial = new Factorial();
+    private Assert anAssert = new Assert(new ConsoleMessenger());
 
     @Before
     public void init(){
         System.out.println("Initialization FactorialTester...");
-        factorial = new Factorial();
-        anAssert = new Assert(new ConsoleMessenger());
     }
 
     @After

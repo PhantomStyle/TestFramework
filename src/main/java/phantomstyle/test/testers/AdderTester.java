@@ -9,14 +9,12 @@ import phantomstyle.test.classes.Adder;
 
 public class AdderTester {
 
-    private Adder adder;
-    private Assert anAssert;
+    private Adder adder = new Adder();
+    private Assert anAssert = new Assert(new ConsoleMessenger());
 
     @Before
     public void init(){
         System.out.println("Initialization AdderTester...");
-        adder = new Adder();
-        anAssert = new Assert(new ConsoleMessenger());
     }
 
     @After
@@ -28,7 +26,12 @@ public class AdderTester {
 
     @Test
     public void when3And6Return9(){
-        anAssert.assertEquals(12, adder.add(3, 9));
+        anAssert.assertEquals(9, adder.add(3, 6));
+    }
+
+    @Test
+    public void when3And7Return10(){
+        anAssert.assertEquals(10, adder.add(3, 7));
     }
 
 }

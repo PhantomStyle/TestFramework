@@ -9,14 +9,12 @@ import phantomstyle.test.classes.Fibonacci;
 
 public class FibonacciTester {
 
-    private Fibonacci fibonacci;
-    private Assert anAssert;
+    private Fibonacci fibonacci = new Fibonacci();
+    private Assert anAssert = new Assert(new ConsoleMessenger());
 
     @Before
     public void init(){
         System.out.println("Initialization FibonacciTester...");
-        fibonacci = new Fibonacci();
-        anAssert = new Assert(new ConsoleMessenger());
     }
 
     @After

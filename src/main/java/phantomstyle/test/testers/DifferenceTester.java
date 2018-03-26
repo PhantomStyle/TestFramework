@@ -9,14 +9,12 @@ import phantomstyle.test.classes.Difference;
 
 public class DifferenceTester {
 
-    private Difference difference;
-    private Assert anAssert;
+    private Difference difference = new Difference();
+    private Assert anAssert = new Assert(new ConsoleMessenger());
 
     @Before
     public void init(){
         System.out.println("Initialization DifferenceTester...");
-        difference = new Difference();
-        anAssert = new Assert(new ConsoleMessenger());
     }
 
     @After

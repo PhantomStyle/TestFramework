@@ -18,9 +18,45 @@ public class TestPerformer {
         }
         for (Class c : classes) {
             Object obj = c.newInstance();
-            ReflectionHelper.findAnnotatedMethod(c, Before.class).invoke(obj);
-            ReflectionHelper.findAnnotatedMethod(c, Test.class).invoke(obj);
-            ReflectionHelper.findAnnotatedMethod(c, After.class).invoke(obj);
+            try {
+                ReflectionHelper.findAnnotatedMethod(c, Before.class).stream()
+                        .forEach(method -> {
+                            try {
+                                method.invoke(obj);
+                            } catch (IllegalAccessException e) {
+                                e.printStackTrace();
+                            } catch (InvocationTargetException e) {
+                                e.printStackTrace();
+                            }
+                        });
+
+            } catch (NullPointerException e) {
+                System.out.println("There are no annotations @Before");
+            }
+            ReflectionHelper.findAnnotatedMethod(c, Test.class).stream()
+                    .forEach(method -> {
+                        try {
+                            method.invoke(obj);
+                        } catch (IllegalAccessException e) {
+                            e.printStackTrace();
+                        } catch (InvocationTargetException e) {
+                            e.printStackTrace();
+                        }
+                    });
+            try {
+                ReflectionHelper.findAnnotatedMethod(c, After.class).stream()
+                        .forEach(method -> {
+                            try {
+                                method.invoke(obj);
+                            } catch (IllegalAccessException e) {
+                                e.printStackTrace();
+                            } catch (InvocationTargetException e) {
+                                e.printStackTrace();
+                            }
+                        });
+            } catch (NullPointerException e) {
+                System.out.println("There are no annotations @After");
+            }
         }
     }
 

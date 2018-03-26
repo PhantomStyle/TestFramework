@@ -3,6 +3,7 @@ package phantomstyle;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -77,14 +78,27 @@ public class ReflectionHelper {
         return null;
     }
 
-    public static Method findAnnotatedMethod(Class<?> testClass, Class annotate) {
+    public static List<Method> findAnnotatedMethod(Class<?> testClass, Class annotate) {
+        List<Method> ret = new ArrayList<>();
         for (Method m : testClass.getMethods()) {
             if (m.getAnnotation(annotate) != null) {
-                return m;
+                ret.add(m);
             }
+        }
+        if(ret.size() != 0){
+            return ret;
         }
         return null;
     }
+
+//    public static Method findAnnotatedMethod(Class<?> testClass, Class annotate) {
+//        for (Method m : testClass.getMethods()) {
+//            if (m.getAnnotation(annotate) != null) {
+//                return m;
+//            }
+//        }
+//        return null;
+//    }
 
     private static Class<?>[] toClasses(Object[] args) {
         List<Class<?>> classes = Arrays.stream(args)
