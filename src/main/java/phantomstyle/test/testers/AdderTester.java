@@ -14,12 +14,12 @@ public class AdderTester {
 
     @Before
     public void init(){
-        System.out.println("Initialization AdderTester...");
+        anAssert.showMessage("Initialization AdderTester...");
     }
 
     @After
     public void close(){
-        System.out.println("Closing AdderTester...");
+        anAssert.showMessage("Closing AdderTester...");
         adder = null;
         anAssert = null;
     }

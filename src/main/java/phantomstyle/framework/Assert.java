@@ -18,8 +18,8 @@ public class Assert {
         }
     }
 
-    public void assertEquals(long expected, long actual) {
-        if (expected != actual) {
+    public void assertEquals(Object expected, Object actual) {
+        if (!expected.equals(actual)) {
             messenger.showMessage("expected: " + expected + "\nfound: " + actual + "\nTest failed");
         } else {
             messenger.showMessage("Test passed");
@@ -33,6 +33,10 @@ public class Assert {
         } else {
             messenger.showMessage("Test passed");
         }
+    }
+
+    public void showMessage(String message){
+        messenger.showMessage(message);
     }
 
 }

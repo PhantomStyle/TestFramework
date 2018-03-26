@@ -14,12 +14,12 @@ public class FactorialTester {
 
     @Before
     public void init(){
-        System.out.println("Initialization FactorialTester...");
+        anAssert.showMessage("Initialization FactorialTester...");
     }
 
     @After
     public void close(){
-        System.out.println("Closing FactorialTester...");
+        anAssert.showMessage("Closing FactorialTester...");
         factorial = null;
         anAssert = null;
     }

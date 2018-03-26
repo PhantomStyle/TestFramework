@@ -14,12 +14,12 @@ public class FibonacciTester {
 
     @Before
     public void init(){
-        System.out.println("Initialization FibonacciTester...");
+        anAssert.showMessage("Initialization FibonacciTester...");
     }
 
     @After
     public void close(){
-        System.out.println("Closing FibonacciTester...");
+        anAssert.showMessage("Closing FibonacciTester...");
         fibonacci = null;
         anAssert = null;
     }

@@ -14,12 +14,12 @@ public class DifferenceTester {
 
     @Before
     public void init(){
-        System.out.println("Initialization DifferenceTester...");
+        anAssert.showMessage("Initialization DifferenceTester...");
     }
 
     @After
     public void close(){
-        System.out.println("Closing DifferenceTester...");
+        anAssert.showMessage("Closing DifferenceTester...");
         difference = null;
         anAssert = null;
     }
